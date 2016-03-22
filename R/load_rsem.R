@@ -21,7 +21,7 @@ load_rsem <- function(rsem_path) {
   
   # read rsem files
   for (f in files) {
-    f = read.table(paste0(path,"rsem/",f), header=T, sep="\t")
+    f = read.table(paste0(rsem_path,"/",f), header=T, sep="\t")
     df_count = cbind(df_count,f$expected_count)
   }
   
