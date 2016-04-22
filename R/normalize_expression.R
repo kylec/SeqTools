@@ -11,6 +11,7 @@
 quantnorm <- function(expression_matrix) {
   norm_matrix = normalize.quantiles(as.matrix(expression_matrix)) 
   norm_matrix = as.data.frame(norm_matrix)
+  colnames(norm_matrix) = colnames(expression_matrix)
   rownames(norm_matrix) = rownames(expression_matrix)
   return(norm_matrix)
 }
@@ -29,7 +30,8 @@ quantnormref <- function(expression_matrix, reference_matrix) {
   reference_dist = normalize.quantiles.determine.target(as.matrix(reference_matrix))
   norm_matrix = normalize.quantiles.use.target(as.matrix(expression_matrix), reference_dist)
   norm_matrix = as.data.frame(norm_matrix)
-  rownames(norm_matrix) = rownames(exprssion_matrix)
+  colnames(norm_matrix) = colnames(expression_matrix)
+  rownames(norm_matrix) = rownames(expression_matrix)
   return(norm_matrix)
 }
 
