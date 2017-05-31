@@ -17,10 +17,10 @@ convertGeneSymbols <- function(genes, species1, species2) {
       human = useMart(biomart="ENSEMBL_MART_ENSEMBL", host="grch37.ensembl.org", dataset = "hsapiens_gene_ensembl")
       return(list(name="hgnc_symbol", mart=human))
     } else if (species == "mm10") {
-      mouse = useMart(biomart="ENSEMBL_MART_ENSEMBL", host="useast.ensembl.org", dataset = "mmusculus_gene_ensembl")
+      mouse = useMart(biomart="ENSEMBL_MART_ENSEMBL", host="www.ensembl.org", dataset = "mmusculus_gene_ensembl")
       return(list(name="mgi_symbol", mart=mouse))  
     } else if (species == "rn6") {
-      rat = useMart(biomart="ENSEMBL_MART_ENSEMBL", host="useast.ensembl.org", dataset = "rnorvegicus_gene_ensembl")
+      rat = useMart(biomart="ENSEMBL_MART_ENSEMBL", host="www.ensembl.org", dataset = "rnorvegicus_gene_ensembl")
       return(list(name="rgd_symbol", mart=rat))  
     }
   }
