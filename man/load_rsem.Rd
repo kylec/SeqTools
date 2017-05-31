@@ -4,10 +4,12 @@
 \alias{load_rsem}
 \title{Load RSEM gene expression}
 \usage{
-load_rsem(rsem_path)
+load_rsem(rsem_path, count_type = NULL)
 }
 \arguments{
 \item{path}{to rsem data}
+
+\item{count}{type: "expected_count"(default), "tmp", "fpkm"}
 }
 \value{
 a data.frame of rsem expected counts (no transformations whatsoever). rownames are genes, colnames are samples
