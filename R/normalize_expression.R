@@ -66,3 +66,18 @@ calcZref = function(expression_matrix, reference_matrix) {
   z = (expression_matrix-means)/sd
   return(z)
 }
+
+#' Upper Quartile normalize expression matrix
+#' 
+#' Upper Quartile normalize expression matrix
+#' @param log2 expression matrix
+#' @return log2 quartile normalized expression
+#' @keywords expression
+#' @export
+#' @examples 
+#' upperQuartile(expression_matrix, reference_matrix)
+upperQuartile = function(expression_matrix) {
+  scale = apply(expression_matrix, 2, function(x){quantile(x, .75)})
+  mean_scale = mean(scale)
+  return(expression_matrix/scale*mean_scale)
+}
