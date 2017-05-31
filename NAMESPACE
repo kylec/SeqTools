@@ -2,6 +2,8 @@
 
 export(calcZ)
 export(calcZref)
+export(convertGeneSymbols)
 export(load_rsem)
 export(quantnorm)
 export(quantnormref)
+export(upperQuartile)
