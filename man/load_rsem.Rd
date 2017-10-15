@@ -19,4 +19,3 @@ Load RSEM gene expression
 exprs = load_rsem("/path/rsem/")
 }
 \keyword{rsem}
-

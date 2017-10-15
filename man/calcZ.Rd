@@ -19,4 +19,3 @@ Transform expression matrix into z score
 calcZ(expression_matrix)
 }
 \keyword{expression}
-

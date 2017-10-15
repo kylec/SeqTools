@@ -19,4 +19,3 @@ Transform expression matrix into z score based on reference expression
 calcZref(expression_matrix, reference_matrix)
 }
 \keyword{expression}
-

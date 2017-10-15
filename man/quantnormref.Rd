@@ -19,4 +19,3 @@ Quantile normailze expression matrix with reference expression matrix
 quantnormref(expression_matrix, reference_matrix)
 }
 \keyword{expression}
-

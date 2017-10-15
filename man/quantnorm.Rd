@@ -19,4 +19,3 @@ Quantile normailze expression matrix
 quantnorm(expression_matrix)
 }
 \keyword{expression}
-
