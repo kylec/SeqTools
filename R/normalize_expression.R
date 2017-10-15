@@ -12,6 +12,7 @@ quantnorm <- function(expression_matrix) {
   norm_matrix = preprocessCore::normalize.quantiles(as.matrix(expression_matrix))
   norm_matrix = as.data.frame(norm_matrix)
   colnames(norm_matrix) = colnames(expression_matrix)
+  rownames(norm_matrix) = rownames(expression_matrix)
   return(norm_matrix)
 }
 
@@ -29,7 +30,8 @@ quantnormref <- function(expression_matrix, reference_matrix) {
   reference_dist = preprocessCore::normalize.quantiles.determine.target(as.matrix(reference_matrix))
   norm_matrix = normalize.quantiles.use.target(as.matrix(expression_matrix), reference_dist)
   norm_matrix = as.data.frame(norm_matrix)
-  colnames(norm_matrix) = colnames(exprssion_matrix)
+  colnames(norm_matrix) = colnames(expression_matrix)
+  rownames(norm_matrix) = rownames(expression_matrix)
   return(norm_matrix)
 }
 
@@ -63,4 +65,19 @@ calcZref = function(expression_matrix, reference_matrix) {
   sd = apply(reference_matrix, 1, sd)
   z = (expression_matrix-means)/sd
   return(z)
+}
+
+#' Upper Quartile normalize expression matrix
+#'
+#' Upper Quartile normalize expression matrix
+#' @param log2 expression matrix
+#' @return log2 quartile normalized expression
+#' @keywords expression
+#' @export
+#' @examples
+#' upperQuartile(expression_matrix, reference_matrix)
+upperQuartile = function(expression_matrix) {
+  scale = apply(expression_matrix, 2, function(x){quantile(x, .75)})
+  mean_scale = mean(scale)
+  return(expression_matrix/scale*mean_scale)
 }
